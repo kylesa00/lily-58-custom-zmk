@@ -10,6 +10,22 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        escape {
+            bindings = <&kp ESC>;
+            key-positions = <0 1>;
+            layers = <3>;
+        };
+
+        GamingLayer {
+            bindings = <&tog 3>;
+            key-positions = <11 23 35 49>;
+            layers = <3 0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -70,34 +86,16 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        layer_3 {
+        Gaming {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&kp CAPSLOCK      &kp N1  &kp N2  &kp N3    &kp N4  &kp N5                         &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp GRAVE
+&kp TAB           &kp Q   &kp W   &kp E     &kp R   &kp T                          &kp Y   &kp U     &kp I      &kp O    &kp P     &kp MINUS
+&kp LSHIFT        &kp A   &kp S   &kp D     &kp F   &kp G                          &kp H   &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V   &kp B   &kp LBKT     &kp RBKT  &kp N   &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                                  &kp LALT  &kp Q   &kp E   &kp SPACE    &kp RET   &mo 2   &kp BSPC  &kp RGUI
             >;
-        };
 
-        layer_4 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
-            >;
-        };
-
-        layer_5 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
-            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
